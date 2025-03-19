@@ -3,7 +3,7 @@ This is the repository for the LinkedIn Learning course AI Algorithms for Game D
 
 ![lil-thumbnail-url]
 
-## Course Description
+## Course Description = test
 
 In this intermediate-level course, Eduardo Corpeño explores AI algorithms for game design. Dive into powerful strategies like minimax, alpha-beta pruning, and iterative deepening. Learn how to implement these techniques in Python and enhance your game development skills. Discover the historical context, such as the algorithms used in IBM's Deep Blue, which defeated world chess champion Garry Kasparov. By engaging with real-world examples and hands-on coding exercises, you will develop and strengthen your ability to create intelligent game algorithms. Your learning journey is made seamless with GitHub Codespaces, ensuring no setup hassles. Whether you are a game developer, AI enthusiast, or a programmer looking to sharpen your skills, this course offers in-depth knowledge and practical skills to effectively utilize AI in game design.
 
