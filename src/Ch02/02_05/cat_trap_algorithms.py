@@ -225,8 +225,8 @@ class CatTrapGame:
            much of the fun.
         """
         # TODO: Remove the following 2 lines to enable your minimax implementation.
-        self.placeholder_warning()
-        return self.random_cat_move(), 0
+        # self.placeholder_warning()
+        # return self.random_cat_move(), 0
     
         # Skeleton Code - Minimax
         # HINT: There are 6 "TODO:" comments below.
@@ -241,7 +241,8 @@ class CatTrapGame:
         # TODO: Complete the code for the first step of the algorithm:
         #       if Terminal(state) then return Utility(state)
         # HINT: To determine if this is a terminal state, look at legal_moves.
-        if True: # Replace with the condition for a terminal state.
+        # if True: # Replace with the condition for a terminal state.
+        if not legal_moves:
             max_turns = 2 * (CatTrapGame.size ** 2)
             utility = (max_turns - depth) * (-500) # Utility for cat's defeat 
             return self.cat, utility
@@ -252,12 +253,14 @@ class CatTrapGame:
             next_game = copy.deepcopy(self)
             # TODO: Apply the current move to next_game.
             # HINT: Remember this is a max-node, so it's the cat's turn.
-            pass # Replace with a call to next_game.apply_move()
+            # pass # Replace with a call to next_game.apply_move()
+            next_game.apply_move(move, cat_turn = True)
 
             # TODO: Calculate the min-node value for this move.
             # HINT: Call next_game.min_value().
             # HINT: Don't forget to send the right depth to min_value()! 
-            value = 0 # Replace with a call to next_game.min_value()
+            # value = 0 # Replace with a call to next_game.min_value()
+            value = next_game.min_value(depth + 1)
 
             if CatTrapGame.terminated:
                 return TIMEOUT, 0
@@ -287,7 +290,8 @@ class CatTrapGame:
         #       is at an edge tile.
         r, c = self.cat
         n = CatTrapGame.size
-        if False: # Replace with the condition for a terminal state.
+        # if False: # Replace with the condition for a terminal state.
+        if (r == 0 or c == 0 or r == n - 1 or c == n - 1):
             max_turns = 2 * (CatTrapGame.size ** 2)
             return (max_turns - depth) * (500) # Utility for cat's victory
         
@@ -299,12 +303,14 @@ class CatTrapGame:
             next_game = copy.deepcopy(self)
             # TODO: Apply the current move to next_game.
             # HINT: Remember this is a min-node, so it's the human player's turn.
-            pass # Replace with a call to next_game.apply_move()
+            # pass # Replace with a call to next_game.apply_move()
+            next_game.apply_move(move, cat_turn = False)
 
             # TODO: Calculate the max-node value for this move.
             # HINT: Call next_game.max_value().
             # HINT: Don't forget to send the right depth to max_value()!
-            _, value = [0,0], 0 # Replace with a call to next_game.max_value()
+            # _, value = [0,0], 0 # Replace with a call to next_game.max_value()
+            _, value = next_game.max_value(depth + 1)
 
             if CatTrapGame.terminated:
                 return 0
